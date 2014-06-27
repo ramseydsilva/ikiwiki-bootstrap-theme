@@ -1,0 +1,43 @@
+<script type="text/javascript" src="ikiwiki/jquery.min.js"></script>
+<script type="text/javascript" src="ikiwiki/openid/openid-jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	openid.init('openid_identifier','<TMPL_IF NONOPENIDFORM>nonopenidform</TMPL_IF>');
+});
+</script>
+
+<noscript>
+<h2>OpenID:</h2>
+</noscript>
+
+<form action="<TMPL_VAR CGIURL>" method="get" id="openid_form">
+	<fieldset>
+		<script>
+		$('fieldset').append("<legend>Select your account provider</legend>");
+		</script>
+		
+		<input type="hidden" name="do" value="signin" />
+		<input type="hidden" name="action" value="verify" />
+		<div id="openid_choice">
+			<div id="openid_btns"></div>
+		</div>
+		<div id="openid_input_area">
+			<label for="openid_identifier" class="block">Enter your OpenID:</label>
+			<input id="openid_identifier" name="openid_identifier" type="text" value="<TMPL_VAR OPENID_URL>"/>
+			<input id="openid_submit" type="submit" value="Login"/>
+		</div>
+		<TMPL_IF OPENID_ERROR>
+		<div class="error"><TMPL_VAR OPENID_ERROR></div>
+		</TMPL_IF>
+	</fieldset>
+</form>
+
+<div id="nonopenidform">
+<TMPL_IF NONOPENIDFORM>
+<br />
+<noscript>
+<h2>Other:</h2>
+</noscript>
+</TMPL_IF>
+<TMPL_VAR NONOPENIDFORM>
+</div>
