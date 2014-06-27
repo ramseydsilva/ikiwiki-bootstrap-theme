@@ -1,0 +1,47 @@
+body {
+    font-family: Verdana, Arial;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+header nav {
+    padding: 40px 0 10px 0;
+}
+
+.actions.navbar-default {
+    border: none;
+    background: none;
+}
+
+.vena-logo {
+    margin-top: -50px;
+}
+
+.title {
+    text-transform: capitalize;
+}
+
+.navbar-nav>li>span {
+    color: rgb(119, 119, 119);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+@media (min-width: 768px)
+.navbar-nav>li>span {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.nav>li>span {
+    line-height: 20px;
+    position: relative;
+    display: block;
+    padding: 15px 15px;
+}
+
+.spacer {
+    height: 10px;
+    padding: 10px 0;
+}
