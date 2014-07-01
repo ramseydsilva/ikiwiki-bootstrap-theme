@@ -65,7 +65,7 @@
 </header>
 
 <div class="container">
-    <div class="row"><div class="col-12">
+    <div class="row"><div class="col-md-12">
 
         <article class="page">
             <section class="pageheader">
@@ -73,14 +73,6 @@
                 <nav class="actions navbar navbar-default" role="navigation">
                     <div class="container">
                         <div class="navbar-header">
-
-                            <a class="navbar-brand title">
-                                <TMPL_VAR TITLE>
-                                <TMPL_IF ISTRANSLATION>
-                                &nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)
-                                </TMPL_IF>
-                            </a>
-
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
@@ -138,6 +130,7 @@
                         <a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a> 
                     </li>
                     </TMPL_LOOP>
+                    <li class="active"><TMPL_VAR TITLE></li>
                 </ol>
                 </TMPL_IF>
 
@@ -175,6 +168,13 @@
             <div id="pagebody">
 
             <section id="content">
+                <p class="lead">
+                    <TMPL_VAR TITLE>
+                    <TMPL_IF ISTRANSLATION>
+                    &nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)
+                    </TMPL_IF>
+                </p>
+                <hr/>
                 <TMPL_VAR CONTENT>
             </section>
 
@@ -266,6 +266,14 @@
 
     </div></div>
 </div>
+
+<script>
+$(function () { 
+    $('input[name="_submit"]').addClass('btn btn-default'); 
+    $('textarea, input[type="text"]').addClass('form-control');
+});
+</script>
+
 
 </body>
 </html>

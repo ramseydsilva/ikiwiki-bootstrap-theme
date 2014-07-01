@@ -23,9 +23,7 @@
     <br/>
 </TMPL_IF>
 
-<input id="_submit" name="_submit" type="submit" value="Save Page" class="btn btn-default">
-<input id="_submit_2" name="_submit" type="submit" value="Preview" class="btn btn-default">
-<input id="_submit_3" name="_submit" type="submit" value="Cancel" class="btn btn-default">
+<TMPL_VAR FORM-SUBMIT>
 
 <TMPL_VAR HELPONFORMATTINGLINK>
 <TMPL_IF NAME="FIELD-ATTACHMENT">
@@ -36,7 +34,9 @@
 <div class="<TMPL_VAR ATTACHMENTS-CLASS>" id="attachments">
 <div id="fileupload"> 
 <script>
-$(function () { $('#fileupload').fileupload(); }); // initialize upload widget
+$(function () { 
+    $('#fileupload').fileupload(); 
+}); // initialize upload widget
 </script>
 <script id="template-upload" type="text/x-jquery-tmpl"> 
     <tr class="template-upload{{if error}} ui-state-error{{/if}}">
