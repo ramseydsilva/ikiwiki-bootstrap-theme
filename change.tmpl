@@ -15,26 +15,10 @@
     </TMPL_IF>
     </TMPL_LOOP>
     </div>
-    <TMPL_IF DIFF>
-    <TMPL_IF HAS_DIFFURL>
-    <div class="diff">
-    <TMPL_ELSE>
-    <div class="toggleable" id="diff-<TMPL_VAR REV>">
-    </TMPL_IF>
-    <pre>
-    <TMPL_VAR DIFF>
-    </pre>
-    </div>
-    </TMPL_IF>
     <!-- <TMPL_VAR REV> -->
 </td>
 
 <td>
-    <TMPL_UNLESS HAS_DIFFURL>
-    <TMPL_IF DIFF>
-    <a href="#diff-<TMPL_VAR REV>" class="toggle" title="diff" rel="nofollow">[[diff|wikiicons/diff.png]]</a>
-    </TMPL_IF>
-    </TMPL_UNLESS>
     <TMPL_LOOP PAGES>
     <TMPL_IF DIFFURL><a href="<TMPL_VAR DIFFURL>" title="diff" rel="nofollow">[[diff|wikiicons/diff.png]]</a><TMPL_VAR LINK>
     <TMPL_ELSE><TMPL_VAR LINK></TMPL_IF>
@@ -50,7 +34,39 @@
 <td><TMPL_VAR COMMITTYPE></td>
 <td><TMPL_VAR COMMITDATE></td>
 <td>
-    <TMPL_IF REVERTURL><span class="revert">
-    <a href="<TMPL_VAR REVERTURL>" title="revert" rel="nofollow">[[revert|wikiicons/revert.png]]</a>
-    </span></TMPL_IF>
+
+    <TMPL_UNLESS HAS_DIFFURL>
+    <TMPL_IF DIFF>
+    <a href="#diff-<TMPL_VAR REV>" class="toggle" title="diff" rel="nofollow">
+        <i class="glyphicon glyphicon-eye-open"></i>
+    </a>
+    </TMPL_IF>
+    </TMPL_UNLESS>
+
+
+    <TMPL_IF REVERTURL>
+    <span class="revert">
+        <a href="<TMPL_VAR REVERTURL>" title="revert" rel="nofollow">
+            <i class="glyphicon glyphicon-remove-circle"></i>
+        </a>
+    </span>
+    </TMPL_IF>
 </td>
+
+
+    <TMPL_IF DIFF>
+    </tr>
+    <tr>
+    <td colspan="6">
+        <TMPL_IF HAS_DIFFURL>
+        <div class="diff">
+        <TMPL_ELSE>
+        <div class="toggleable" id="diff-<TMPL_VAR REV>">
+        </TMPL_IF>
+        <pre>
+        <TMPL_VAR DIFF>
+        </pre>
+        </div>
+    </td>
+    </TMPL_IF>
+

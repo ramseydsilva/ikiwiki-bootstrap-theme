@@ -53,3 +53,7 @@ header nav {
     height: 10px;
     padding: 10px 0;
 }
+
+.recentchanges-table {
+    table-layout: fixed;
+}
